@@ -1,0 +1,9 @@
+name: Practice
+version: 1.0.0
+author: Gixy
+main: fr.gixy.practice.Main
+commands:
+  duel:
+    description: Provoquez un joueur en duel
+  sondage:
+    description: Pour faire un vote
