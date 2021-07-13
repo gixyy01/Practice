@@ -12,8 +12,6 @@ public class MobSpawningEvent implements Listener {
 
     @EventHandler
     public void onMobSpawningEvent(CreatureSpawnEvent event) {
-
-
         event.setCancelled(event.getSpawnReason() == CreatureSpawnEvent.SpawnReason.NATURAL);
 
     }

@@ -34,26 +34,17 @@ public class DamageListener implements Listener {
 
                 event.setDamage(0);
                 main.eliminate(player);
-
-
             }
         }
-
-
     }
 
     @EventHandler
     public void onPvp(EntityDamageByEntityEvent event) {
 
-
         Entity victim = event.getEntity();
 
         if (!(event.getEntityType().equals(EntityType.PLAYER))) {
-
-
             return;
-
-
         }
 
         if (victim instanceof Player) {
@@ -63,38 +54,19 @@ public class DamageListener implements Listener {
             Player killer = null;
 
             if (player.getHealth() <= event.getDamage()) {
-
-
                 if (event.getEntity() instanceof Player) {
-
-
                     if (damager instanceof Player) killer = (Player) damager;
-
-
                     if (damager instanceof Arrow) {
-
                         Arrow arrow = (Arrow) damager;
                         if (arrow.getShooter() instanceof Player) {
-
-
                             killer = (Player) arrow.getShooter();
                         }
-
-
                     }
                     killer.sendMessage(ChatColor.GOLD + "Vous avez tué " + ChatColor.GOLD + player.getName());
                     event.setDamage(0);
                     main.eliminate(player);
-
-
                 }
-
             }
-
-
         }
-
     }
 }
-
-

@@ -44,12 +44,8 @@ public class CommandDuel implements CommandExecutor {
 
 
         if (sender instanceof Player) {
-
-
             // Argument help pour voir la liste des commandes
-
             if (args.length == 0 || (args[0].equalsIgnoreCase("help"))) {
-
 
                 player.sendMessage(ChatColor.GOLD + "Voici les commandes que vous pouvez faire :");
                 player.sendMessage("");
@@ -58,14 +54,9 @@ public class CommandDuel implements CommandExecutor {
                 player.sendMessage(ChatColor.YELLOW + "/duel <pseudo> » Pour envoyer une demande de duel à un joueur");
 
                 return true;
-
             }
-
-
             if (args[0].equalsIgnoreCase("accept")) {
                 Player target = Bukkit.getPlayer((args[1]));
-
-
                 if (args.length == 2) {
 
                     ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
@@ -156,10 +147,7 @@ public class CommandDuel implements CommandExecutor {
 
 
                     new BukkitRunnable() {
-
-
                         int timer = 6;
-
 
                         @Override
                         public void run() {
@@ -168,20 +156,14 @@ public class CommandDuel implements CommandExecutor {
 
                             main.setState(State.STARTING);
 
-
                             if (timer == 5 || timer == 4 || timer == 3 || timer == 2 || timer == 1) {
-
                                 for (Player players : Bukkit.getOnlinePlayers()) {
 
                                     players.sendMessage(ChatColor.YELLOW + "Début du combat dans " + ChatColor.GOLD + timer + ChatColor.YELLOW + " secondes !");
                                 }
-
-
                             }
 
-
                             if (timer == 0) {
-
 
                                 main.setState(State.PLAYING);
                                 cancel();
@@ -194,15 +176,11 @@ public class CommandDuel implements CommandExecutor {
 
                         }
                     }.runTaskTimer(main, 20, 20);
-
-
                 }
-
                 return true;
             }
 
             Player target = Bukkit.getServer().getPlayer(args[0]);
-
 
             if (player == target) {
 
@@ -216,19 +194,13 @@ public class CommandDuel implements CommandExecutor {
 
                 player.sendMessage("Ce joueur est déjà en combat !");
 
-
                 return true;
-
             }
-
 
             if (target == null) {
 
                 player.sendMessage(ChatColor.RED + "Le joueur n'est pas en ligne");
-
-
             } else {
-
 
                 TextComponent duel = new TextComponent(ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " vous a envoyé une demande de duel, cliquez sur ce message pour accepter la demande");
 
@@ -237,15 +209,9 @@ public class CommandDuel implements CommandExecutor {
                 target.spigot().sendMessage(duel);
                 request.put(player.getUniqueId(), target.getUniqueId());
                 target.playSound(target.getLocation(), Sound.NOTE_PLING, 1f, 1f);
-
-
             }
-
-
             return true;
         }
-
-
         return false;
     }
 }

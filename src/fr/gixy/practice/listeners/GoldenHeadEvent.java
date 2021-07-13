@@ -30,10 +30,7 @@ public class GoldenHeadEvent implements Listener {
         ItemStack item = event.getItem();
         Player player = event.getPlayer();
 
-
         if (event.getItem().getType() == Material.GOLDEN_APPLE) {
-
-
             if (item.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Golden Head")) {
 
                 new BukkitRunnable() {
@@ -44,18 +41,7 @@ public class GoldenHeadEvent implements Listener {
 
                     }
                 }.runTaskLater(main, 3);
-
-
             }
-
-
         }
-
-
     }
-
-
 }
-
-
-
